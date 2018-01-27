@@ -11,5 +11,24 @@ docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -e MYSQL_ROOT_PASSW
 ### Run you own image
 
 ```  
-git clone https://github.com/glats/alpine-docker-lamp
+git clone https://github.com/glats/alpine-lamp && cd alpine-docker-lamp/
 ```
+
+### Build the image
+```
+docker buiuld -t username/alpine-lamp .
+```
+
+### Run it
+
+```
+docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -e MYSQL_ROOT_PASSWORD=password -p 80:80 -p 3306:3306 --name lamp glats/alpine-lamp
+```
+
+##Troubleshooting
+If you get a "forbidden error 403"
+in your project run:
+```
+sudo chmod -Rf 755 /path/to/project
+``` 
+
