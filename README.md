@@ -25,7 +25,7 @@ docker buiuld -t username/alpine-lamp .
 docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -e MYSQL_ROOT_PASSWORD=password -p 80:80 -p 3306:3306 --name lamp glats/alpine-lamp
 ```
 
-##Troubleshooting
+## Troubleshooting
 If you get a "forbidden error 403"
 in your project run:
 ```
