@@ -5,7 +5,7 @@ This is a docker file that take an image from alpine linux and create a lamp sta
 ## Instalation
 ### grab from docker hub
 ```
-docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -e MYSQL_ROOT_PASSWORD=password -p 80:80 -p 3306:3306 --name lamp glats/alpine-lamp
+docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -v /path/to/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -p 80:80 -p 3306:3306 --name lamp glats/alpine-lamp
 ```
 
 ### Run you own image
@@ -24,6 +24,12 @@ docker buiuld -t username/alpine-lamp .
 ```
 docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -e MYSQL_ROOT_PASSWORD=password -p 80:80 -p 3306:3306 --name lamp glats/alpine-lamp
 ```
+
+### Connect to MariaDB
+```
+mysql -u root -p -h 127.0.0.1
+```
+
 
 ## Troubleshooting
 If you get a "forbidden error 403"
