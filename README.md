@@ -31,4 +31,4 @@ in your project run:
 ```
 sudo chmod -Rf 755 /path/to/project
 ``` 
-
+If missing some lib for php please let me know or create a pull request
