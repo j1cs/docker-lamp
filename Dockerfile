@@ -27,7 +27,8 @@ RUN apk add mariadb mariadb-client \
     php7-gd \
     php7-mbstring \
     php7-apcu \
-    php7-opcache
+    php7-opcache \
+    php7-tokenizer
 
 RUN curl -sS https://getcomposer.org/installer | \
     php -- --install-dir=/usr/bin --filename=composer
@@ -50,6 +51,9 @@ RUN cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     sed -i '/skip-external-locking/a general_log_file = \/var\/lib\/mysql\/query.log' /etc/mysql/my.cnf
 
 RUN sed -i 's#display_errors = Off#display_errors = On#' /etc/php7/php.ini && \
+    sed -i 's#upload_max_filesize = 2M#upload_max_filesize = 100M#' /etc/php7/php.ini && \
+    sed -i 's#post_max_size = 8M#post_max_size = 100M#' /etc/php7/php.ini && \
+    sed -i 's#session.cookie_httponly =#session.cookie_httponly = true#' /etc/php7/php.ini && \
     sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#' /etc/php7/php.ini
 
 
