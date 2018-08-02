@@ -16,7 +16,7 @@ git clone https://github.com/glats/alpine-lamp && cd alpine-docker-lamp/
 
 ### Build the image
 ```
-docker buiuld -t username/alpine-lamp .
+docker build -t username/alpine-lamp .
 ```
 
 ### Run it
