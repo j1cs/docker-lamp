@@ -22,7 +22,12 @@ RUN apk add mariadb mariadb-client \
     php7-dom \
     php7-iconv \
     php7-xdebug \
-    php7-session
+    php7-session \
+    php7-intl \
+    php7-gd \
+    php7-mbstring \
+    php7-apcu \
+    php7-opcache
 
 RUN curl -sS https://getcomposer.org/installer | \
     php -- --install-dir=/usr/bin --filename=composer
