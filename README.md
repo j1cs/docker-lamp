@@ -2,7 +2,7 @@
 
 This is a docker file that take an image from alpine linux and create a lamp stack
 
-## Instalation
+## Installation
 ### grab from docker hub
 ```
 docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -v /path/to/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -p 80:80 -p 3306:3306 --name lamp glats/alpine-lamp
