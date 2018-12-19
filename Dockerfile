@@ -65,6 +65,11 @@ RUN echo "zend_extension=xdebug.so" > /etc/php7/conf.d/xdebug.ini && \
     echo "xdebug.idekey=PHPSTORM" >> /etc/php7/conf.d/xdebug.ini && \ 
     echo "xdebug.remote_log=\"/tmp/xdebug.log\"" >> /etc/php7/conf.d/xdebug.ini
 
+RUN cd /var/www/localhost/htdocs && \
+    wget https://files.phpmyadmin.net/phpMyAdmin/4.8.4/phpMyAdmin-4.8.4-all-languages.tar.gz && \
+    tar -xzvf phpMyAdmin-4.8.4-all-languages.tar.gz && \ 
+    mv phpMyAdmin-4.8.4-all-languages phpMyAdmin
+
 COPY entry.sh /entry.sh
 
 RUN chmod u+x /entry.sh
