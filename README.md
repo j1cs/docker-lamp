@@ -30,6 +30,10 @@ docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -e MYSQL_ROOT_PASSW
 mysql -u root -p -h 127.0.0.1
 ```
 
+### PhpMyAdmin
+
+If you wanna use the frontend for mysql you can use the branch **phpmyadmin-feature**
+
 
 ## Troubleshooting
 If you get a "forbidden error 403"
