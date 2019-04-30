@@ -3,7 +3,7 @@
 This docker contain a LAMP stack installed from scratch
 
 ## Installation
-### grab from docker hub
+### Grab from docker hub
 ```
 docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -v /path/to/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -p 80:80 -p 3306:3306 --name lamp glats/alpine-lamp
 ```
@@ -16,13 +16,13 @@ git clone https://github.com/glats/alpine-lamp && cd alpine-lamp/
 
 ### Build the image
 ```
-docker build -t username/alpine-lamp .
+docker build -t $USER/alpine-lamp .
 ```
 
 ### Run it
 
 ```
-docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -e MYSQL_ROOT_PASSWORD=password -p 80:80 -p 3306:3306 --name lamp glats/alpine-lamp
+docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -e MYSQL_ROOT_PASSWORD=password -p 80:80 -p 3306:3306 --name lamp $USER/alpine-lamp
 ```
 
 ### Connect to MariaDB
