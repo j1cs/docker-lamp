@@ -1,6 +1,6 @@
-## Alpine docker with lamp
+## Docker with LAMP stack based on Alpine Linux
 
-This is a docker file that take an image from alpine linux and create a lamp stack
+This docker contain a LAMP stack installed from scratch
 
 ## Installation
 ### grab from docker hub
@@ -11,7 +11,7 @@ docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -v /path/to/mysql/d
 ### Run you own image
 
 ```  
-git clone https://github.com/glats/alpine-lamp && cd alpine-docker-lamp/
+git clone https://github.com/glats/alpine-lamp && cd alpine-lamp/
 ```
 
 ### Build the image
@@ -26,22 +26,23 @@ docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -e MYSQL_ROOT_PASSW
 ```
 
 ### Connect to MariaDB
+To use this you need to install mysql/mariadb cli client
 ```
 mysql -u root -p -h 127.0.0.1
 ```
 
 ### PhpMyAdmin
 
-If you wanna use the frontend for mysql you can use the branch **phpmyadmin-feature**
+If you want to use phpMyAdmin use the branch called: **phpmyadmin-feature**
 
 
 ## Troubleshooting
 If you get a "forbidden error 403"
-in your project run:
+Fix it with:
 ```
 sudo chmod -Rf 755 /path/to/project
 ``` 
-If missing some lib for php please let me know or create a pull request
+If missing libs please let me know or create a pull request
 
 ## Repos
 https://hub.docker.com/r/glats/alpine-lamp  
