@@ -28,7 +28,7 @@ docker run -d -v /path/to/project:/var/www/localhost/htdocs/ -e MYSQL_ROOT_PASSW
 ### Connect to MariaDB
 To use this you need to install mysql/mariadb cli client
 ```
-mysql -u root -p -h 127.0.0.1
+mysql -uroot -ppassword -h 127.0.0.1
 ```
 
 ### PhpMyAdmin
