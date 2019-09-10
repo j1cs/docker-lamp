@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.10.2
 ENV TIMEZONE America/Santiago
 RUN apk update && apk upgrade
 RUN apk add mariadb mariadb-client \
