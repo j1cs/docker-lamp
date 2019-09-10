@@ -4,7 +4,7 @@ RUN apk update && apk upgrade
 RUN apk add mariadb mariadb-client \
     apache2 \ 
     apache2-utils \
-    curl wget vim htop \
+    curl wget \
     tzdata \
     php7-apache2 \
     php7-cli \
