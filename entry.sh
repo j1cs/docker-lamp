@@ -1,17 +1,19 @@
 #!/bin/sh
 
 # start apache
+echo "Starting httpd"
 httpd
+echo "Done httpd"
+
 
 # check if mysql data directory is nuked
 # if so, install the db
+echo "Checking /var/lib/mysql folder"
 if [ ! -f /var/lib/mysql/ibdata1 ]; then 
-    mysql_install_db --user=root > /dev/null
+    echo "Installing db"
+    mysql_install_db --user=mysql --verbose=1 --basedir=/usr --datadir=/var/lib/mysql --rpm > /dev/null
+    echo "Installed"
 fi;
-
-if [ ! -d "/run/mysqld" ]; then
-    mkdir -p /run/mysqld
-fi
 
 # from mysql official docker repo
 if [ -z "$MYSQL_ROOT_PASSWORD" -a -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
@@ -22,8 +24,10 @@ fi
 
 # random password
 if [ ! -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
+    echo "Using random password"
     MYSQL_ROOT_PASSWORD="$(pwgen -1 32)"
     echo "GENERATED ROOT PASSWORD: $MYSQL_ROOT_PASSWORD"
+    echo "Done"
 fi
 
 tfile=`mktemp`
@@ -41,9 +45,12 @@ cat << EOF > $tfile
     FLUSH PRIVILEGES;
 EOF
 
+echo "Querying user"
 /usr/bin/mysqld --user=root --bootstrap --verbose=0 < $tfile
 rm -f $tfile
+echo "Done query"
 
 # start mysql
 # nohup mysqld_safe --skip-grant-tables --bind-address 0.0.0.0 --user mysql > /dev/null 2>&1 &
+echo "Starting mariadb database"
 exec /usr/bin/mysqld --user=root --bind-address=0.0.0.0
