@@ -11,7 +11,7 @@ echo "Done httpd"
 echo "Checking /var/lib/mysql folder"
 if [ ! -f /var/lib/mysql/ibdata1 ]; then 
     echo "Installing db"
-    mysql_install_db --user=mysql --verbose=1 --basedir=/usr --datadir=/var/lib/mysql --rpm > /dev/null
+    mariadb-install-db --user=mysql --ldata=/var/lib/mysql > /dev/null
     echo "Installed"
 fi;
 
