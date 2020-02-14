@@ -46,9 +46,10 @@ sudo chmod -Rf 755 /path/to/project
 If you get errors about activating InnoDB and you are on Windows or Mac, you
 may be encountering [this
 issue](https://github.com/docker-library/mariadb/issues/95) with using
-host-mapped volumes for MariaDB. There is a fix but not in the version of
-MariaDB in Alpine 3.11. Work-around is to use a persistent but not mapped
-volume, or overwrite my.cnf config before entry.
+host-mapped volumes for MariaDB. There is a
+[fix](https://github.com/xrnl/extinction-rebellion-nl/pull/41) but not in the
+version of MariaDB in Alpine 3.11. Work-around is to use a named volume
+(persistent but not mapped), or [add/overwrite mysql config](https://github.com/docker-library/mariadb/issues/95#issuecomment-391587301) before entry.
 
 If missing libs please let me know or create a pull request
 
